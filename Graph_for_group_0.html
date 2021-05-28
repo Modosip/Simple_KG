@@ -1,0 +1,332 @@
+<!doctype html>
+                  <html lang="ru">
+                    <head>
+                    <meta charset="utf-8"/>
+                    <title>Interractive graph</title>
+                    <style>
+                      .parent > div {
+                        background: #eee;
+                        float: left;
+                        margin-right: 2%;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                        -webkit-box-sizing: border-box;
+                        -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+                      }
+                      #all_information{
+                        overflow-y:scroll;
+                        overflow-x:scroll;
+                      }
+                      #mynetwork {
+                          width: 1600px;
+                          height: 800px;
+                          border: 1px solid lightgray;
+                      }
+                      table, td,th {
+                        border: 1px solid black; 
+                        border-collapse: collapse;
+                      }
+                    </style>
+                    </head>
+                    <body>
+                    
+                    <div class="parent">
+                        <div id="mynetwork"></div>
+                        <div id="all_information"></div>
+                    </div>
+                    
+                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+                    <script src="https://visjs.github.io/vis-network/standalone/umd/vis-network.min.js"></script>
+                    <script>
+var nodes = new vis.DataSet([
+{         id: 1, 
+                                label: "бытовка"
+},{         id: 2, 
+                                label: "стрелецкий"
+},{         id: 3, 
+                                label: "дворник"
+},{         id: 4, 
+                                label: "недорубова"
+},{         id: 5, 
+                                label: "ям"
+},{         id: 6, 
+                                label: "тротуар"
+},{         id: 7, 
+                                label: "моэк"
+},{         id: 8, 
+                                label: "лобненский"
+},{         id: 9, 
+                                label: "шономонтаж"
+},{         id: 10, 
+                                label: "моэск"
+},{         id: 11, 
+                                label: "ати"
+},{         id: 12, 
+                                label: "газон"
+},{         id: 13, 
+                                label: "трактор"
+},{         id: 14, 
+                                label: "траншея"
+},{         id: 15, 
+                                label: "волга"
+},{         id: 16, 
+                                label: "\\nон"
+},{         id: 17, 
+                                label: "кирпич"
+},{         id: 18, 
+                                label: "мусор"
+},{         id: 19, 
+                                label: "электрик"
+},{         id: 20, 
+                                label: "мигание"
+},{         id: 21, 
+                                label: "щит  "
+},{         id: 22, 
+                                label: "щебней  "
+},{         id: 23, 
+                                label: "что  "
+},{         id: 24, 
+                                label: "траншею  .\\"
+},{         id: 25, 
+                                label: "траектории  движение"
+},{         id: 26, 
+                                label: "состоянии  "
+},{         id: 27, 
+                                label: "работы  двор"
+},{         id: 28, 
+                                label: "работы  "
+},{         id: 29, 
+                                label: "порядок  "
+},{         id: 30, 
+                                label: "покрышки  "
+},{         id: 31, 
+                                label: "покрытие  "
+},{         id: 32, 
+                                label: "непонятно  "
+},{         id: 33, 
+                                label: "мусором  "
+},{         id: 34, 
+                                label: "мусор  "
+},{         id: 35, 
+                                label: "месяца  "
+},{         id: 36, 
+                                label: "месте  "
+},{         id: 37, 
+                                label: "ленточкой  "
+},{         id: 38, 
+                                label: "колодец  "
+},{         id: 39, 
+                                label: "клумбу  хранение"
+},{         id: 40, 
+                                label: "головы  прохожий"
+},{         id: 41, 
+                                label: "газоне  "
+},{         id: 42, 
+                                label: "выполнение  работа"
+},{         id: 43, 
+                                label: "время  "
+},{         id: 44, 
+                                label: "блоками  "
+},   ]);
+var edges = new vis.DataSet([{       from: 1, 
+                    to: 21, 
+                    arrows: "to",
+                    label: "убрали",
+                    info: {'sent_0': 'Бытовки убрали  информационный щит тоже  а горы асфальта и земли с бетоном остались '}
+},{       from: 2, 
+                    to: 22, 
+                    arrows: "to",
+                    label: "засыпали",
+                    info: {'sent_1': 'Четыре недели назад прокладывая коммуникации выкопали траншею по всему тротуару рядом с домом 9 1  по ул  Стрелецкая  далее засыпали щебней '}
+},{       from: 3, 
+                    to: 23, 
+                    arrows: "to",
+                    label: "признают",
+                    info: {'sent_2': 'Дворники признают что территория их но почему то не хотят ее убирать '}
+},{       from: 4, 
+                    to: 24, 
+                    arrows: "to",
+                    label: "прокапали",
+                    info: {'sent_3': 'Строят продолжение дороги по ул  Маресьева и вдоль ул  Недорубова прокапали траншею   nСпец техника выносит грязь и землю на проезжую часть 2 и 3 фото '}
+},{       from: 5, 
+                    to: 25, 
+                    arrows: "to",
+                    label: "находятся",
+                    info: {'sent_4': 'Ямы находятся на траектории движения во двор '}
+},{       from: 6, 
+                    to: 26, 
+                    arrows: "to",
+                    label: "находиться",
+                    info: {'sent_5': 'Тротуар рядом с выходом метро находиться в ужасном состоянии '}
+},{       from: 7, 
+                    to: 27, 
+                    arrows: "to",
+                    label: "проводит",
+                    info: {'sent_6': 'МОЭК проводит работы во дворе жилого дома   но ночного освещения нет '}
+},{       from: 7, 
+                    to: 28, 
+                    arrows: "to",
+                    label: "проводил",
+                    info: {'sent_7': 'МОЭК в ноябре декабре 2019 г  проводил ремонтные работы '}
+},{       from: 8, 
+                    to: 29, 
+                    arrows: "to",
+                    label: "привели",
+                    info: {'sent_8': 'хотелось бы чтобы ул  Лобненская и Клязьминская  наконец то  привели в порядок '}
+},{       from: 9, 
+                    to: 30, 
+                    arrows: "to",
+                    label: "выкидывает",
+                    info: {'sent_9': 'Шономонтаж выкидывает старые покрышки за забор около железнодорожных путей '}
+},{       from: 10, 
+                    to: 31, 
+                    arrows: "to",
+                    label: "вскрыло",
+                    info: {'sent_10': 'МОЭСК во время проведения аварийно восстановительных работ вскрыло асфальтовое покрытие '}
+},{       from: 11, 
+                    to: 32, 
+                    arrows: "to",
+                    label: "занимается",
+                    info: {'sent_11': 'Чем занимается наш АТИ непонятно '}
+},{       from: 12, 
+                    to: 33, 
+                    arrows: "to",
+                    label: "захламлен",
+                    info: {'sent_13': 'Газон  внутри леска  захламлен мусором '}
+},{       from: 13, 
+                    to: 34, 
+                    arrows: "to",
+                    label: "сваливают",
+                    info: {'sent_14': 'Трактора сваливают мусор и листья прямо рядом с детской площадкой'}
+},{       from: 14, 
+                    to: 35, 
+                    arrows: "to",
+                    label: "больше",
+                    info: {'sent_15': 'Траншея во всю ширину тротуара уже как больше месяца '}
+},{       from: 15, 
+                    to: 36, 
+                    arrows: "to",
+                    label: "стоит",
+                    info: {'sent_16': 'Волга очень давно стоит на одном месте  тем самым перекрывает полосу для движения '}
+},{       from: 16, 
+                    to: 37, 
+                    arrows: "to",
+                    label: "обътянута",
+                    info: {'sent_17': 'Вокруг четырех метровой ямы отсутствует ограждение   nОна обътянута ленточкой '}
+},{       from: 6, 
+                    to: 38, 
+                    arrows: "to",
+                    label: "проходит",
+                    info: {'sent_18': 'Тротуар проходит через не закрытый и недоделанный колодец '}
+},{       from: 3, 
+                    to: 39, 
+                    arrows: "to",
+                    label: "используют",
+                    info: {'sent_19': 'Дворники используют клумбу для хранения инвентаря '}
+},{       from: 17, 
+                    to: 40, 
+                    arrows: "to",
+                    label: "падают",
+                    info: {'sent_20': 'Кирпичи падают на головы прохожих '}
+},{       from: 18, 
+                    to: 41, 
+                    arrows: "to",
+                    label: "находятся",
+                    info: {'sent_21': 'Мусор и строительные материалы находятся на газоне  за пределами бытового городка '}
+},{       from: 19, 
+                    to: 42, 
+                    arrows: "to",
+                    label: "оттягивают",
+                    info: {'sent_22': 'Электрики всячески оттягивают выполнение работ '}
+},{       from: 20, 
+                    to: 43, 
+                    arrows: "to",
+                    label: "мешает",
+                    info: {'sent_23': 'Мигание мешает отдыху в ночное время '}
+},{       from: 12, 
+                    to: 44, 
+                    arrows: "to",
+                    label: "завален",
+                    info: {'sent_24': 'Газон возле дома завален бетонными блоками '}
+},   ]);
+
+      var container = document.getElementById('mynetwork');
+      var data = {
+        nodes: nodes,
+        edges: edges
+      };
+      var options = {
+        "physics":{
+          "barnesHut":{
+            "gravitationalConstant": -4000, 
+            "springConstant": 0.006,
+            "damping":0.2
+          },
+          "repulsion":{"nodeDistance":300}
+        }
+      };
+
+    var network = new vis.Network(container, data, options);
+    var res_container = document.getElementById('all_information');
+
+    network.on( 'click', function(properties) {
+        var clickedNodes = nodes.get(properties.nodes);
+        var clickedEdges = edges.get(properties.edges);
+        var clickedObject;
+
+        if (clickedNodes.length==0 & clickedEdges.length==0){
+            console.log("")
+            } else {
+                    clickedObject = clickedEdges[0] 
+                    var total_sum_by_doctype = clickedObject['info'];
+                    var tsbd_labels = Object.keys(total_sum_by_doctype);
+                    var tsbd_values = Object.values(total_sum_by_doctype);
+                    createTable(tsbd_labels, tsbd_values);
+                    } 
+    });
+
+    function createTable(labels, values){
+      var table = document.getElementById('text_information');
+      if (table != null)
+      {
+        table.remove(table);
+        table = document.createElement('table');
+        table.setAttribute('id', 'text_information');
+        res_container.appendChild(table);
+      }
+      else{
+        table = document.createElement('table');
+        table.setAttribute('id', 'text_information');
+        res_container.appendChild(table);
+      }
+      var tr_header = document.createElement('tr');
+      var th_col_label = document.createElement('th');
+      th_col_label.innerHTML = "Номер";
+      var th_col_value = document.createElement('th');
+      th_col_value.innerHTML = "Предложение, которое содержит ребро";
+      tr_header.appendChild(th_col_label);
+      tr_header.appendChild(th_col_value);
+      table.appendChild(tr_header);
+
+      for (var i=0; i < labels.length; i++){
+        var tr = document.createElement('tr');
+        let td1 = document.createElement('td');
+        td1.innerHTML = labels[i]
+        let td2 = document.createElement('td');
+        td2.innerHTML = values[i]
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        table.appendChild(tr);
+      }
+    }
+
+
+    </script>
+    <style>
+      #all_information {
+        overflow-y:scroll;
+      }
+    </style>
+    </body>
+    </html>
